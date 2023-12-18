@@ -18,3 +18,24 @@ Type assertions
     (member_expression
       (identifier)
       (property_identifier)))))
+
+=========================
+<const> assertion
+=========================
+
+const x = <const>{ a: 1 };
+
+---
+
+(program
+  (lexical_declaration
+    (variable_declarator
+      (identifier)
+      (type_assertion
+        (type_arguments
+          (type_identifier))
+        (object
+          (pair
+            (property_identifier)
+            (number)))))))
+
