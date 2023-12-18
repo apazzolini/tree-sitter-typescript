@@ -924,11 +924,12 @@ module.exports = function defineGrammar(dialect) {
         '<', commaSep1($.type_parameter), optional(','), '>'
       ),
 
-      type_parameter: $ => seq(
-        optional('const'),
-        field('name', $._type_identifier),
-        field('constraint', optional($.constraint)),
-        field('value', optional($.default_type))
+      type_parameter: $ => choice(
+        seq(
+          choice(field('name', $._type_identifier), seq('const ', field('name', $._type_identifier))),
+          field('constraint', optional($.constraint)),
+          field('value', optional($.default_type))
+        )
       ),
 
       default_type: $ => seq(
