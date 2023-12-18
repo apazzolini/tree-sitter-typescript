@@ -6272,6 +6272,10 @@
     "named": false
   },
   {
+    "type": "const ",
+    "named": false
+  },
+  {
     "type": "continue",
     "named": false
   },
